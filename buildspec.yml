@@ -20,6 +20,7 @@ phases:
       - echo Publish started on `date`
       - dotnet publish -c Release -r win-x64 -o site Aspcorepipe/Aspcorepipe.csproj
       - cp Procfile site
+      - cp aws-windows-deployment-manifest.json site
       
 artifacts:
   files:
