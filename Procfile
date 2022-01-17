@@ -1,0 +1,1 @@
+web: dotnet exec Aspcorepipe.dll --urls http://aspcorepipe2-env.eba-v4wj5hdm.us-east-2.elasticbeanstalk.com/

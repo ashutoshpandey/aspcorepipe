@@ -1,0 +1,27 @@
+version: 0.2
+    
+phases:   
+  install:
+    runtime-versions:
+      dotnet: latest
+      
+  pre_build:
+    commands:
+      - echo Restore started on `date`
+      - dotnet restore Aspcorepipe/Aspcorepipe.csproj
+      
+  build:
+    commands:
+      - echo Build started on `date`
+      - dotnet build Aspcorepipe/Aspcorepipe.csproj
+      
+  post_build:
+    commands:
+      - echo Publish started on `date`
+      - dotnet publish -c Release -r win-x64 -o site Aspcorepipe/Aspcorepipe.csproj
+      - cp Procfile site
+      
+artifacts:
+  files:
+    - site\**\*
+  discard-paths: no
