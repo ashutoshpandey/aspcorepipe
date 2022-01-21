@@ -1,1 +1,1 @@
-web: dotnet exec Aspcorepipe.dll --urls http://aspcorepipe2-env.eba-v4wj5hdm.us-east-2.elasticbeanstalk.com/
+web: dotnet exec data-unveil-api.dll --urls http://codepipetest-env.eba-cecanund.us-east-2.elasticbeanstalk.com/

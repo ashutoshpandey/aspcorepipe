@@ -18,11 +18,15 @@ phases:
   post_build:
     commands:
       - echo Publish started on `date`
-      - dotnet publish -c Release -r win-x64 -o site Aspcorepipe/Aspcorepipe.csproj
-      - cp Procfile site
-      - cp aws-windows-deployment-manifest.json site
+      - echo $CODEBUILD_SRC_DIR
+      - dotnet publish --output ./bin/Release/netcoreapp3.1/publish -c Release --framework netcoreapp3.1 Aspcorepipe/Aspcorepipe.csproj
+      - cp Procfile ./bin/Release/netcoreapp3.1/publish
+      - cp aws-windows-deployment-manifest.json ./bin/Release/netcoreapp3.1/publish
+      - echo publish done on `date`
+      - echo pwd `pwd`
       
 artifacts:
   files:
-    - site\**\*
+    - '\**\*'
+  base-directory: ./bin/Release/netcoreapp3.1/publish
   discard-paths: no
